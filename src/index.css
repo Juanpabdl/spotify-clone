@@ -50,7 +50,7 @@
   .dark {
     --background: rgb(0, 0, 0);
     --foreground: rgb(255, 255, 255) ;
-    --card: rgb(34, 34, 34);
+    --card: rgb(18, 18, 18);
     --primary: rgb(29, 185, 84);
     --border: rgb(68, 68, 68); ;
   }
@@ -82,9 +82,13 @@
 }
 
 @utility play-button{
-  @apply p-4 rounded-full bg-primary text-foreground font-medium
+  @apply p-3 rounded-full bg-primary text-foreground font-medium
   transition-all duration-200 hover:bg-white/10 active:bg-white active:text-black
   cursor-pointer
+}
+
+@utility spoty-btn{
+  @apply px-4 py-2 rounded-full text-foreground bg-primary cursor-pointer
 }
 
 #root{
