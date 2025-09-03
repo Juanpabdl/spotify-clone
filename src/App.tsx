@@ -1,10 +1,11 @@
+import MyRoutes from "./routes/routes";
 
 function App() {
 
   return (
-    <div>
-      Hola
-    </div>
+    <>
+      <MyRoutes/>
+    </>
   )
 }
 
