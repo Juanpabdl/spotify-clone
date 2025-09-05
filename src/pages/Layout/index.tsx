@@ -1,3 +1,4 @@
+import Player from "../../components/Player";
 import SideBar from "../../components/Sidebar";
 import { Outlet } from "react-router-dom"
 //import ScrollToTop from "../../components/ScrollToTop";
@@ -9,6 +10,7 @@ const Layout = () => {
                 <Outlet/>
                 {/*<ScrollToTop/>*/}
             </div>
+            <Player/>
         </div>
     )
 }
