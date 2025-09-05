@@ -82,8 +82,8 @@
 }
 
 @utility play-button{
-  @apply p-3 rounded-full bg-primary text-foreground font-medium
-  transition-all duration-200 hover:bg-white/10 active:bg-white active:text-black
+  @apply p-2 rounded-full bg-background stroke-foreground font-medium
+  transition-all duration-200 hover:bg-primary/20 active:bg-primary
   cursor-pointer
 }
 
