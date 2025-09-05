@@ -4,7 +4,7 @@ import ThemeToggle from "../ThemeToggle";
 const SideBar = () => {
     return (
         <div className="w-[25%] h-full p-2 flex-col gap-2 text-foreground hidden lg:flex">
-            <nav className="bg-card h-[20%] rounded flex flex-col justify-around">
+            <div className="bg-card h-[20%] rounded flex flex-col justify-around">
                 <div className="container flex items-start pl-8 cursor-pointer">
                     <ThemeToggle/>
                 </div>
@@ -16,7 +16,7 @@ const SideBar = () => {
                     <Search className="w-5 h-5 stroke-2"/>
                     <p className="font-bold">Search</p>
                 </div>
-            </nav>
+            </div>
             <div className="bg-card h-[80%] rounded">
                 <div className="p-4 flex items-center justify-between">
                     <div className="flex items-center gap-3">
