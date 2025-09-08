@@ -69,6 +69,18 @@
   }
 }
 
+@layer utilities {
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .no-scrollbar::-webkit-scrollbar {
+          display: none;
+      }
+     /* Hide scrollbar for IE, Edge and Firefox */
+      .no-scrollbar {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+    }
+  }
+
 /*Component*/
 
 /*Utils*/
@@ -78,7 +90,7 @@
 }
 
 @utility card-hover{
-  @apply transition-transform duration-200 hover:scale-105 hover:shadow-lg
+  @apply transition-transform duration-200 hover:bg-foreground/10 hover:shadow-lg
 }
 
 @utility play-button{
