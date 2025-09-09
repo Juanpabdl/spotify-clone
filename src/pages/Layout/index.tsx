@@ -7,7 +7,7 @@ const Layout = () => {
         <div className="h-screen bg-background">
             <div className="h-[90%] flex">
                 <SideBar/>
-                <div className="w-[100%] m-2 p-6 pt-4 bg-card text-foreground overflow-auto lg:w-[75%] lg:ml-0">
+                <div className="custom-scrollbar w-[100%] m-2 p-6 pt-4 bg-card text-foreground overflow-auto lg:w-[75%] lg:ml-0">
                     <Outlet/>
                 </div>
                 {/*<ScrollToTop/>*/}
