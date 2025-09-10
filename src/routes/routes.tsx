@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "../pages/Layout";
 import Error404 from "../pages/Error404";
 import Home from "../pages/Home";
+import Album from "../pages/Album";
 
 const router = createBrowserRouter([
     {
@@ -10,6 +11,7 @@ const router = createBrowserRouter([
         errorElement: <Error404/>,
         children: [
             {index: true, element: <Home/>},
+            {path: '/album/:id', element: <Album/>}
         ]
     }
 ])
