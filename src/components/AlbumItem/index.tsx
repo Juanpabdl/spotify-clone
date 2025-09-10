@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 type AlbumProps ={
     id: number,
     name: string,
@@ -6,8 +8,10 @@ type AlbumProps ={
 }
 
 const AlbumItem = (props: AlbumProps) => {
+    const navigate = useNavigate()
+
     return (
-        <div className="min-w-[180px] p-2 px-3 rounded cursor-pointer card-hover">
+        <div onClick={() => navigate(`/album/${props.id}`)} className="min-w-[180px] p-2 px-3 rounded cursor-pointer card-hover">
             <div className="max-w-[250px]">
                 <img className='rounded w-full' src={props.image} alt={props.name}/>
             </div>
