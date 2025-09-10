@@ -1,4 +1,3 @@
-//Import song data
 import { 
     ListMusic, 
     Mic2, 
@@ -24,7 +23,7 @@ const Player = () => {
                 <img className="w-12" src={song.img} alt="song_image"/>
                 <div>
                     <p className="font-semibold">{song.name}</p>
-                    <p>{song.desc.slice(0,12)}</p>{/* slice if too long*/}
+                    <p>{song.desc.slice(0,12)}</p>
                 </div>  
             </div>
             <div className="flex flex-col items-center gap-0.5 m-auto">
@@ -46,11 +45,11 @@ const Player = () => {
                     </button>
                 </div>
                 <div className="flex items-center gap-5">
-                    <p>1:06</p>{/* Song current time */}
+                    <p>1:06</p>
                     <div className="w-[60vw] max-w-[500px] bg-gray-300 rounded-full cursos-pointer">
                         <hr className="h-1 border-border w-full bg-primary rounded-full"/>
                     </div>
-                    <p>{song.duration}</p>{/* Song time length */}
+                    <p>{song.duration}</p>
                 </div>
             </div>
             <div className="hidden lg:flex items-center gap-2 opacity-75">
