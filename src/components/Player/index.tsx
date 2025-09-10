@@ -12,16 +12,19 @@ import {
     TvMinimalPlay, 
     Volume2, 
     ZoomIn } from "lucide-react";
+import { songData } from "../../utils/musicData";
 //import './index.css'
 
 const Player = () => {
+    const song = songData[0]
+
     return(
         <div className="h-[10%] w-full px-4 bg-background flex justify-between items-center text-foreground">
             <div className="hidden lg:flex items-center gap-4">
-                <img className="w-12" src={'#'} alt="song_image"/>
+                <img className="w-12" src={song.img} alt="song_image"/>
                 <div>
-                    <p className="font-semibold">Song Name</p>
-                    <p>Song Desc</p>{/* slice if too long*/}
+                    <p className="font-semibold">{song.name}</p>
+                    <p>{song.desc.slice(0,12)}</p>{/* slice if too long*/}
                 </div>  
             </div>
             <div className="flex flex-col items-center gap-0.5 m-auto">
@@ -47,7 +50,7 @@ const Player = () => {
                     <div className="w-[60vw] max-w-[500px] bg-gray-300 rounded-full cursos-pointer">
                         <hr className="h-1 border-border w-full bg-primary rounded-full"/>
                     </div>
-                    <p>3:00</p>{/* Song time length */}
+                    <p>{song.duration}</p>{/* Song time length */}
                 </div>
             </div>
             <div className="hidden lg:flex items-center gap-2 opacity-75">
