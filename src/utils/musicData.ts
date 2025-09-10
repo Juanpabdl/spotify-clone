@@ -11,12 +11,14 @@ export const albumData = [
         id: 0,
         name: 'Top 50 Global',
         img: top_global,
-        desc:'Your weekly update of the most popular tracks'
+        desc:'Your weekly update of the most popular tracks',
+        bgColor: '#bf452c',
     },{
         id: 1,
         name: 'Top 50 Mexico',
         img: top_mex,
-        desc:'Your weekly update of the most popular tracks'
+        desc:'Your weekly update of the most popular tracks',
+        bgColor: '#36942f',
     },
 ]
 
