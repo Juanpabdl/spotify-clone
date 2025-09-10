@@ -43,7 +43,7 @@ const Album = () => {
             </div>
             <hr/>
             {songData.map((item,index) => (
-                <div key={`song-item-${index}`} className="grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 items-center bg-background text-foreground/70 text-sm cursor-pointer hover:bg-background/60">
+                <div key={`song-item-${index}`} className="grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 items-center text-foreground/70 text-sm cursor-pointer hover:bg-foreground/20">
                     <p>
                         <b className="mr-4">{item.id+1}</b>
                         <img className="inline-block w-10 mr-5" src={item.img} alt={`img_${item.id+1}`}/>
