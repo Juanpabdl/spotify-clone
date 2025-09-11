@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
-import { albumData, songData } from "../../utils/musicData";
+import { albumData, songData } from "../../utils/data/musicData";
 import { AudioWaveform, Clock } from "lucide-react";
 
 type AlbumParams = {

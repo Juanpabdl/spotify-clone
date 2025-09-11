@@ -2,8 +2,8 @@ import { useEffect, useRef } from "react";
 import Player from "../../components/Player";
 import SideBar from "../../components/Sidebar";
 import { Outlet, useLocation } from "react-router-dom"
-import { albumData } from "../../utils/musicData";
-//import ScrollToTop from "../../components/ScrollToTop";
+import { albumData } from "../../utils/data/musicData";
+
 const Layout = () => {
     const displayRef = useRef<HTMLDivElement>(null);
     const location = useLocation();
@@ -26,9 +26,9 @@ const Layout = () => {
                 <div ref={displayRef} className="custom-scrollbar w-[100%] m-2 p-6 pt-4 bg-card text-foreground overflow-auto lg:w-[75%] lg:ml-0">
                     <Outlet/>
                 </div>
-                {/*<ScrollToTop/>*/}
             </div>
             <Player/>
+            <audio preload="auto"></audio>
         </div>
     )
 }
