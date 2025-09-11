@@ -1,10 +1,10 @@
-import top_global from '../assets/images/top50_global.png';
-import top_mex from '../assets/images/top50_mexico.png';
-import song1 from '../assets/images/song1.jpeg';
-import song2 from '../assets/images/song2.jpeg';
-import song3 from '../assets/images/song3.jpeg';
-import song4 from '../assets/images/song4.jpeg';
-import song5 from '../assets/images/song5.jpeg';
+import top_global from '../../assets/images/top50_global.png';
+import top_mex from '../../assets/images/top50_mexico.png';
+import song1 from '../../assets/images/song1.jpeg';
+import song2 from '../../assets/images/song2.jpeg';
+import song3 from '../../assets/images/song3.jpeg';
+import song4 from '../../assets/images/song4.jpeg';
+import song5 from '../../assets/images/song5.jpeg';
 
 export const albumData = [
     {
