@@ -1,6 +1,6 @@
 import Navbar from "../../components/Navbar";
 import AlbumItem from "../../components/AlbumItem";
-import { albumData, songData } from "../../utils/musicData";
+import { albumData, songData } from "../../utils/data/musicData";
 import SongItem from "../../components/SongItem";
 const Home = () => {
     return(
