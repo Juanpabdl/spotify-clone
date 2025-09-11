@@ -11,7 +11,7 @@ import {
     TvMinimalPlay, 
     Volume2, 
     ZoomIn } from "lucide-react";
-import { songData } from "../../utils/musicData";
+import { songData } from "../../utils/data/musicData";
 //import './index.css'
 
 const Player = () => {
