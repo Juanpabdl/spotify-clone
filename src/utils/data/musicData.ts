@@ -6,8 +6,8 @@ import img_song3 from '../../assets/images/song3.jpeg';
 import img_song4 from '../../assets/images/song4.jpeg';
 import img_song5 from '../../assets/images/song5.jpeg';
 import song1 from '../../assets/songs/song1.mp3';
-import song2 from '../../assets/songs/song1.mp3';
-import song3 from '../../assets/songs/song1.mp3';
+import song2 from '../../assets/songs/song2.mp3';
+import song3 from '../../assets/songs/song3.mp3';
 
 export const albumData = [
     {
