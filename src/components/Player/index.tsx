@@ -15,7 +15,7 @@ import { usePlayer } from "../../utils/hooks/usePlayer";
 const Player = () => {
     const {barRef, currentTrack, time, isPlaying, play, pause} = usePlayer();
 
-    const formatTime = (time: number) => time <= 9 ? '0'+ String(time) : String(time);
+    const formatTime = (time: number) => time <= 9 ? '0'+ time : time;
 
     return(
         <div className="h-[10%] w-full px-4 bg-background flex justify-between items-center text-foreground">
