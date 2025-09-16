@@ -15,6 +15,8 @@ import { usePlayer } from "../../utils/hooks/usePlayer";
 const Player = () => {
     const {barRef, currentTrack, time, isPlaying, play, pause} = usePlayer();
 
+    const formatTime = (time: number) => time <= 9 ? '0'+ String(time) : String(time);
+
     return(
         <div className="h-[10%] w-full px-4 bg-background flex justify-between items-center text-foreground">
             <div className="hidden lg:flex items-center gap-4">
@@ -49,11 +51,11 @@ const Player = () => {
                     </button>
                 </div>
                 <div className="flex items-center gap-5">
-                    <p>{time.currentTime.minute}:{time.currentTime.second}</p>
+                    <p>{formatTime(time.currentTime.minute)}:{formatTime(time.currentTime.second)}</p>
                     <div className="w-[60vw] max-w-[500px] bg-gray-300 rounded-full cursos-pointer">
                         <hr ref={barRef} className="h-1 border-border w-full bg-primary rounded-full"/>
                     </div>
-                    <p>{time.totalTime.minute}:{time.totalTime.second}</p>
+                    <p>{formatTime(time.totalTime.minute)}:{formatTime(time.totalTime.second)}</p>
                 </div>
             </div>
             <div className="hidden lg:flex items-center gap-2 opacity-75">
