@@ -5,6 +5,9 @@ import img_song2 from '../../assets/images/song2.jpeg';
 import img_song3 from '../../assets/images/song3.jpeg';
 import img_song4 from '../../assets/images/song4.jpeg';
 import img_song5 from '../../assets/images/song5.jpeg';
+import song1 from '../../assets/songs/song1.mp3';
+import song2 from '../../assets/songs/song1.mp3';
+import song3 from '../../assets/songs/song1.mp3';
 
 export const albumData = [
     {
@@ -27,7 +30,7 @@ export const songData = [
         id:0,
         name: 'Song One',
         img: img_song1,
-        file: '',
+        file: song1,
         desc: 'Let´s turn that frown upside-down',
         duration: '3:00'
     },
@@ -35,7 +38,7 @@ export const songData = [
         id:1,
         name: 'Song Two',
         img: img_song2,
-        file: '',
+        file: song2,
         desc: 'Welcome to the machine',
         duration: '3:00'
     },
@@ -43,7 +46,7 @@ export const songData = [
         id:2,
         name: 'Song Three',
         img: img_song3,
-        file: '',
+        file: song3,
         desc: 'Under the bridge downtown',
         duration: '3:00'
     },
@@ -51,7 +54,7 @@ export const songData = [
         id:3,
         name: 'Song Four',
         img: img_song4,
-        file: '',
+        file: song1,
         desc: 'Dive into the dream',
         duration: '3:00'
     },
@@ -59,7 +62,7 @@ export const songData = [
         id:4,
         name: 'Song Five',
         img: img_song5,
-        file: '',
+        file: song2,
         desc: 'Creatures of the night',
         duration: '3:00'
     },
