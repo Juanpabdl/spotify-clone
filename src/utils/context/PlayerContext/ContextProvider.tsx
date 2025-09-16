@@ -37,6 +37,7 @@ const PlayerContextProvider:React.FC<PlayerProviderProps> = ({children}) => {
     useEffect(() => {
         setTimeout(() => {
             audioRef.current!.ontimeupdate = () => {
+                barRef.current!.style.width = (Math.floor(audioRef.current!.currentTime / audioRef.current!.duration * 100)) + '%';
                 setTime({
                     currentTime:{
                         second: Math.floor(audioRef.current!.currentTime % 60),
@@ -48,7 +49,7 @@ const PlayerContextProvider:React.FC<PlayerProviderProps> = ({children}) => {
                 });
             }
         }, 1000);
-    },[audioRef])
+    },[audioRef]);
 
     const contextValue:PlayerContextType = {
         audioRef,
