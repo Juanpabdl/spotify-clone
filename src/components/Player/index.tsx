@@ -1,29 +1,27 @@
 import { 
     ListMusic, 
     Mic2, 
-    Play, 
+    Pause, Play, 
     PlaySquare, 
-    Repeat, 
-    Shuffle, 
+    Repeat, Shuffle, 
     Speaker, 
-    StepBack, 
-    StepForward,
+    StepBack, StepForward,
     TvMinimalPlay, 
     Volume2, 
     ZoomIn } from "lucide-react";
-import { songData } from "../../utils/data/musicData";
+import { usePlayer } from "../../utils/hooks/usePlayer";
 //import './index.css'
 
 const Player = () => {
-    const song = songData[0]
+    const {barRef, currentTrack, time, isPlaying, play, pause} = usePlayer();
 
     return(
         <div className="h-[10%] w-full px-4 bg-background flex justify-between items-center text-foreground">
             <div className="hidden lg:flex items-center gap-4">
-                <img className="w-12" src={song.img} alt="song_image"/>
+                <img className="w-12" src={currentTrack.img} alt="song_image"/>
                 <div>
-                    <p className="font-semibold">{song.name}</p>
-                    <p>{song.desc.slice(0,12)}</p>
+                    <p className="font-semibold">{currentTrack.name}</p>
+                    <p>{currentTrack.desc.slice(0,12)}</p>
                 </div>  
             </div>
             <div className="flex flex-col items-center gap-0.5 m-auto">
@@ -34,9 +32,15 @@ const Player = () => {
                     <button className="group play-button">
                         <StepBack className="w-5 group-active:stroke-background"/>
                     </button>
-                    <button className="group play-button">
-                        <Play className="w-5 group-active:stroke-background"/>
-                    </button>
+                    {isPlaying ? (
+                        <button onClick={pause} className="group play-button">
+                            <Pause className="w-5 group-active:stroke-background"/>
+                        </button>
+                    ):(
+                        <button onClick={play} className="group play-button">
+                            <Play className="w-5 group-active:stroke-background"/>
+                        </button>
+                    )}
                     <button className="group play-button">
                         <StepForward className="w-5 group-active:stroke-background"/>
                     </button>
@@ -45,11 +49,11 @@ const Player = () => {
                     </button>
                 </div>
                 <div className="flex items-center gap-5">
-                    <p>1:06</p>
+                    <p>{time.currentTime.minute}:{time.currentTime.second}</p>
                     <div className="w-[60vw] max-w-[500px] bg-gray-300 rounded-full cursos-pointer">
-                        <hr className="h-1 border-border w-full bg-primary rounded-full"/>
+                        <hr ref={barRef} className="h-1 border-border w-full bg-primary rounded-full"/>
                     </div>
-                    <p>{song.duration}</p>
+                    <p>{time.totalTime.minute}:{time.totalTime.second}</p>
                 </div>
             </div>
             <div className="hidden lg:flex items-center gap-2 opacity-75">
