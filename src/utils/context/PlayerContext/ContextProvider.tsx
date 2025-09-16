@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { PlayerContext, type PlayerContextType, type SongType } from ".";
 import { songData } from "../../data/musicData";
 
@@ -33,6 +33,22 @@ const PlayerContextProvider:React.FC<PlayerProviderProps> = ({children}) => {
         console.log('Paused song')
         setIsPlaying(false)
     }
+
+    useEffect(() => {
+        setTimeout(() => {
+            audioRef.current!.ontimeupdate = () => {
+                setTime({
+                    currentTime:{
+                        second: Math.floor(audioRef.current!.currentTime % 60),
+                        minute: Math.floor(audioRef.current!.currentTime / 60)
+                    }, totalTime:{
+                        second: Math.floor(audioRef.current!.duration % 60),
+                        minute: Math.floor(audioRef.current!.duration / 60)
+                    }
+                });
+            }
+        }, 1000);
+    },[audioRef])
 
     const contextValue:PlayerContextType = {
         audioRef,
