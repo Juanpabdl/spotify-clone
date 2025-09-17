@@ -1,3 +1,5 @@
+import { usePlayer } from "../../utils/hooks/usePlayer"
+
 type SongProps = {
     name: string,
     image: string,
@@ -6,8 +8,10 @@ type SongProps = {
 }
 
 const SongItem = (props: SongProps) => {
+    const { playWithId } = usePlayer()
+
     return (
-        <div className="min-w-[180px] max-w-[250px] p-2 px-3 rounded cursor-pointer card-hover">
+        <div onClick={() => playWithId(props.id)} className="min-w-[180px] max-w-[250px] p-2 px-3 rounded cursor-pointer card-hover">
             <div className="max-w-[200px]">
                 <img className='rounded w-full' src={props.image} alt={props.name}/>
             </div>
