@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import { albumData, songData } from "../../utils/data/musicData";
 import { AudioWaveform, Clock } from "lucide-react";
+import { usePlayer } from "../../utils/hooks/usePlayer";
 
 type AlbumParams = {
     id?: string
@@ -9,6 +10,7 @@ type AlbumParams = {
 
 const Album = () => {
     const {id} = useParams<AlbumParams>();
+    const {playWithId} = usePlayer();
 
     if (id === undefined){
         return (<div>Album not found. Try again later.</div>)
@@ -43,7 +45,9 @@ const Album = () => {
             </div>
             <hr/>
             {songData.map((item,index) => (
-                <div key={`song-item-${index}`} className="grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 items-center text-foreground/70 text-sm cursor-pointer hover:bg-foreground/20">
+                <div onClick={()=> playWithId(item.id)} 
+                key={`song-item-${index}`} 
+                className="grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 items-center text-foreground/70 text-sm cursor-pointer hover:bg-foreground/20">
                     <p>
                         <b className="mr-4">{item.id+1}</b>
                         <img className="inline-block w-10 mr-5" src={item.img} alt={`img_${item.id+1}`}/>
