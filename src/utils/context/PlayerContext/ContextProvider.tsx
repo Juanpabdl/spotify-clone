@@ -69,7 +69,7 @@ const PlayerContextProvider:React.FC<PlayerProviderProps> = ({children}) => {
                 });
             }
         }, 1000);
-    },[audioRef]);
+    },[audioRef, barRef]);
 
     const contextValue:PlayerContextType = {
         audioRef,
