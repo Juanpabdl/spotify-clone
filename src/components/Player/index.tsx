@@ -13,7 +13,7 @@ import { usePlayer } from "../../utils/hooks/usePlayer";
 //import './index.css'
 
 const Player = () => {
-    const {barRef, currentTrack, time, isPlaying, play, pause} = usePlayer();
+    const {barRef, currentTrack, time, isPlaying, play, pause, playPrevious, playNext} = usePlayer();
 
     const formatTime = (time: number) => time <= 9 ? '0'+ time : time;
 
@@ -31,7 +31,7 @@ const Player = () => {
                     <button className="group play-button">
                         <Shuffle className="w-5 group-active:stroke-background"/>
                     </button>
-                    <button className="group play-button">
+                    <button onClick={playPrevious} className="group play-button">
                         <StepBack className="w-5 group-active:stroke-background"/>
                     </button>
                     {isPlaying ? (
@@ -43,7 +43,7 @@ const Player = () => {
                             <Play className="w-5 group-active:stroke-background"/>
                         </button>
                     )}
-                    <button className="group play-button">
+                    <button onClick={playNext} className="group play-button">
                         <StepForward className="w-5 group-active:stroke-background"/>
                     </button>
                     <button className="group play-button">
