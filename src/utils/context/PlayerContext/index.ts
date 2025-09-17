@@ -34,6 +34,8 @@ export type PlayerContextType = {
     setVolume: (newVolume: number) => void;
     setTime: (newTime: Time) => void;
     playWithId: (id: number) => void;
+    playPrevious: () => void;
+    playNext: () => void;
 }
 
 export const PlayerContext = createContext<PlayerContextType|undefined>(undefined)
