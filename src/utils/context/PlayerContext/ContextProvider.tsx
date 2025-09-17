@@ -24,14 +24,18 @@ const PlayerContextProvider:React.FC<PlayerProviderProps> = ({children}) => {
 
     const play = () => {
         audioRef.current?.play()
-        console.log('Now playing song')
         setIsPlaying(true)
     }
 
     const pause = () => {
         audioRef.current?.pause()
-        console.log('Paused song')
         setIsPlaying(false)
+    }
+
+    const playWithId = async (id: number) => {
+        await setCurrentTrack(songData[id]);
+        await audioRef.current?.play();
+        setIsPlaying(true);
     }
 
     useEffect(() => {
@@ -58,8 +62,8 @@ const PlayerContextProvider:React.FC<PlayerProviderProps> = ({children}) => {
         volume, setVolume,
         currentTrack, setCurrentTrack,
         time, setTime,
-        play,
-        pause,
+        play, pause,
+        playWithId,
     }
 
     return (
