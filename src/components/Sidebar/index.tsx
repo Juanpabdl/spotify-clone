@@ -1,14 +1,17 @@
 import { ArrowRight, Home, LibraryBig, Plus, Search } from "lucide-react";
 import ThemeToggle from "../ThemeToggle";
+import { useNavigate } from "react-router-dom";
 
 const SideBar = () => {
+    const navigate = useNavigate();
+
     return (
         <div className="w-[25%] h-full p-2 flex-col gap-2 text-foreground hidden lg:flex">
             <div className="bg-card h-[20%] rounded flex flex-col justify-around">
                 <div className="container flex items-start pl-8 cursor-pointer">
                     <ThemeToggle/>
                 </div>
-                <div className="container flex items-center gap-3 pl-8 cursor-pointer">
+                <div onClick={() => navigate('/')} className="container flex items-center gap-3 pl-8 cursor-pointer">
                     <Home className="w-5 h-5 stroke-2"/>
                     <p className="font-bold">Home</p>
                 </div>
