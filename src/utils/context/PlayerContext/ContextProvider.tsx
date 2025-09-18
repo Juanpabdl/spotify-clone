@@ -9,6 +9,8 @@ interface PlayerProviderProps{
 const PlayerContextProvider:React.FC<PlayerProviderProps> = ({children}) => {
     const audioRef = useRef<HTMLAudioElement|null>(null);
     const barRef = useRef<HTMLHRElement|null>(null);
+    const seekRef = useRef<HTMLDivElement|null>(null);
+
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
     const [volume, setVolume] = useState<number>(50);
     const [currentTrack, setCurrentTrack] = useState<SongType>(songData[0])
@@ -54,6 +56,10 @@ const PlayerContextProvider:React.FC<PlayerProviderProps> = ({children}) => {
         }
     }
 
+    const seekSong = (e: React.MouseEvent<HTMLDivElement>) => {
+        audioRef.current!.currentTime = ((e.nativeEvent.offsetX / seekRef.current!.offsetWidth) * audioRef.current!.duration)
+    }
+
     useEffect(() => {
         setTimeout(() => {
             audioRef.current!.ontimeupdate = () => {
@@ -72,14 +78,13 @@ const PlayerContextProvider:React.FC<PlayerProviderProps> = ({children}) => {
     },[audioRef, barRef]);
 
     const contextValue:PlayerContextType = {
-        audioRef,
-        barRef,
+        audioRef, barRef, seekRef,
         isPlaying, setIsPlaying,
         volume, setVolume,
         currentTrack, setCurrentTrack,
         time, setTime,
         play, pause,
-        playWithId, playPrevious, playNext,
+        playWithId, playPrevious, playNext, seekSong,
     }
 
     return (

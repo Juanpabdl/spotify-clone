@@ -1,4 +1,4 @@
-import { createContext, type RefObject } from "react";
+import React, { createContext, type RefObject } from "react";
 
 type Time = {
     currentTime: {
@@ -25,8 +25,9 @@ export type PlayerContextType = {
     volume: number;
     currentTrack: SongType;
     audioRef: RefObject<HTMLAudioElement|null>;
-    barRef: RefObject<HTMLHRElement|null>,
-    time: Time,
+    barRef: RefObject<HTMLHRElement|null>;
+    seekRef: RefObject<HTMLDivElement|null>;
+    time: Time;
     play: () => void;
     pause: () => void;
     setIsPlaying: (playing: boolean) => void;
@@ -36,6 +37,7 @@ export type PlayerContextType = {
     playWithId: (id: number) => void;
     playPrevious: () => void;
     playNext: () => void;
+    seekSong: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 export const PlayerContext = createContext<PlayerContextType|undefined>(undefined)
