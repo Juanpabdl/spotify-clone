@@ -13,7 +13,7 @@ import { usePlayer } from "../../utils/hooks/usePlayer";
 //import './index.css'
 
 const Player = () => {
-    const {barRef, seekRef, currentTrack, time, isPlaying, play, pause, playPrevious, playNext, seekSong} = usePlayer();
+    const {barRef, seekRef, currentTrack, time, isPlaying, play, pause, playPrevious, playNext, seekSong, volume, setVolume} = usePlayer();
 
     const formatTime = (time: number) => time <= 9 ? '0'+ time : time;
 
@@ -64,9 +64,13 @@ const Player = () => {
                 <ListMusic className="w-4"/>
                 <Speaker className="w-4"/>
                 <Volume2 className="w-4"/>
-                <div className="w-20 bg-foreground h-1 rounded">
-
-                </div>
+                <input className="w-20 h-1 rounded bg-white"
+                type="range" 
+                min={0} 
+                max={1}
+                step={.01}
+                value={volume}
+                onChange={(e)=>setVolume(e.target.valueAsNumber)}/>
                 <TvMinimalPlay className="w-4"/>
                 <ZoomIn className="w-4"/>
             </div>
