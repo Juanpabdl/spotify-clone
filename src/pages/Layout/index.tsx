@@ -13,7 +13,7 @@ const Layout = () => {
                 <DisplaySection/>
             </div>
             <Player/>
-            <audio ref={audioRef} src={currentTrack.file!} preload="auto"></audio>
+            <audio ref={audioRef} src={currentTrack.file!} preload="auto"/>
         </div>
     )
 }
