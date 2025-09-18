@@ -13,7 +13,7 @@ import { usePlayer } from "../../utils/hooks/usePlayer";
 //import './index.css'
 
 const Player = () => {
-    const {barRef, currentTrack, time, isPlaying, play, pause, playPrevious, playNext} = usePlayer();
+    const {barRef, seekRef, currentTrack, time, isPlaying, play, pause, playPrevious, playNext, seekSong} = usePlayer();
 
     const formatTime = (time: number) => time <= 9 ? '0'+ time : time;
 
@@ -52,7 +52,7 @@ const Player = () => {
                 </div>
                 <div className="flex items-center gap-5">
                     <p>{formatTime(time.currentTime.minute)}:{formatTime(time.currentTime.second)}</p>
-                    <div className="w-[60vw] max-w-[500px] bg-gray-300 rounded-full cursos-pointer">
+                    <div ref={seekRef} onClick={seekSong} className="w-[60vw] max-w-[500px] bg-gray-300 rounded-full cursos-pointer">
                         <hr ref={barRef} className="h-1 border-border w-full bg-primary rounded-full"/>
                     </div>
                     <p>{formatTime(time.totalTime.minute)}:{formatTime(time.totalTime.second)}</p>
