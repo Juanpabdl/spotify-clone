@@ -7,7 +7,7 @@ import {
     Speaker, 
     StepBack, StepForward,
     TvMinimalPlay, 
-    Volume2, 
+    VolumeX, Volume, Volume1, Volume2, 
     ZoomIn } from "lucide-react";
 import { usePlayer } from "../../utils/hooks/usePlayer";
 //import './index.css'
@@ -16,7 +16,26 @@ const Player = () => {
     const {barRef, seekRef, currentTrack, time, isPlaying, play, pause, playPrevious, playNext, seekSong, volume, setVolume} = usePlayer();
 
     const formatTime = (time: number) => time <= 9 ? '0'+ time : time;
+    
+    const renderVolumeIcon = () => {
+        let volumeElement = null;
 
+        switch (true){
+            case volume === 0: 
+                volumeElement = <VolumeX className="w-4"/>;
+                break;
+            case volume <= 0.33:
+                volumeElement = <Volume className="w-4"/>;
+                break;
+            case volume <= 0.66:
+                volumeElement = <Volume1 className="w-4"/>;
+                break;
+            default:
+                volumeElement = <Volume2 className="w-4"/>;
+        }
+
+        return volumeElement;
+    }
     return(
         <div className="h-[10%] w-full px-4 bg-background flex justify-between items-center text-foreground">
             <div className="hidden lg:flex items-center gap-4">
@@ -63,7 +82,7 @@ const Player = () => {
                 <Mic2 className="w-4"/>
                 <ListMusic className="w-4"/>
                 <Speaker className="w-4"/>
-                <Volume2 className="w-4"/>
+                {renderVolumeIcon()}
                 <input className="w-20 h-1 rounded bg-white"
                 type="range" 
                 min={0} 
