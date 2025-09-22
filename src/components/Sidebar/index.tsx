@@ -34,12 +34,12 @@ const SideBar = () => {
                 <div className="p-4 m-2 bg-background rounded font-semibold flex flex-col items-start justify-start gap-1">
                     <h1>Create Your First Playlist</h1>
                     <p className="font-light">It´s easy, we´ll help you!</p>
-                    <button className="spoty-btn text-[15px] mt-4">Create Playlist</button>
+                    <button className="spoty-button text-[15px] mt-4">Create Playlist</button>
                 </div>
                 <div className="p-4 m-2 bg-background rounded font-semibold flex flex-col items-start justify-start gap-1 mt-4">
                     <h1>Find some Podcast to Follow</h1>
                     <p className="font-light">We'll keep you updated!</p>
-                    <button className="spoty-btn text-[15px] mt-4">Browse Podcast</button>
+                    <button className="spoty-button text-[15px] mt-4">Browse Podcast</button>
                 </div>
             </div>
         </div>
