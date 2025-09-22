@@ -47,8 +47,8 @@ const Player = () => {
             </div>
             <div className="flex flex-col items-center gap-0.5 m-auto">
                 <div className="flex gap-3">
-                    <button className="group play-button">
-                        <Shuffle className="w-5 group-active:stroke-background"/>
+                    <button className="group block-button">{/* Functionality pending */}
+                        <Shuffle className="w-5"/>
                     </button>
                     <button onClick={playPrevious} className="group play-button">
                         <StepBack className="w-5 group-active:stroke-background"/>
