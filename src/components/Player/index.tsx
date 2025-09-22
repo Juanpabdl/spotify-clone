@@ -3,17 +3,17 @@ import {
     Mic2, 
     Pause, Play, 
     PlaySquare, 
-    Repeat, Shuffle, 
+    Repeat, CircleOff, Shuffle, 
     Speaker, 
     StepBack, StepForward,
     TvMinimalPlay, 
     VolumeX, Volume, Volume1, Volume2, 
-    ZoomIn } from "lucide-react";
+    ZoomIn} from "lucide-react";
 import { usePlayer } from "../../utils/hooks/usePlayer";
 //import './index.css'
 
 const Player = () => {
-    const {barRef, seekRef, currentTrack, time, isPlaying, play, pause, playPrevious, playNext, seekSong, volume, setVolume} = usePlayer();
+    const {barRef, seekRef, currentTrack, time, isPlaying, play, pause, playPrevious, playNext, seekSong, volume, setVolume, isLooping, toggleLoop} = usePlayer();
 
     const formatTime = (time: number) => time <= 9 ? '0'+ time : time;
     
@@ -65,8 +65,13 @@ const Player = () => {
                     <button onClick={playNext} className="group play-button">
                         <StepForward className="w-5 group-active:stroke-background"/>
                     </button>
-                    <button className="group play-button">
-                        <Repeat className="w-5 group-active:stroke-background"/>
+                    <button onClick={toggleLoop} className="group play-button">
+                        {isLooping ? (
+                            <CircleOff className="w-5 group-active:stroke-background"/>
+                        ):(
+                            <Repeat className="w-5 group-active:stroke-background"/>
+                        )}
+                        
                     </button>
                 </div>
                 <div className="flex items-center gap-5">
