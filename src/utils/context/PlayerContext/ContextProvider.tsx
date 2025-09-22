@@ -12,6 +12,7 @@ const PlayerContextProvider:React.FC<PlayerProviderProps> = ({children}) => {
     const seekRef = useRef<HTMLDivElement|null>(null);
 
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
+    const [isLooping, setIsLooping] = useState<boolean>(false);
     const [volume, setVolume] = useState<number>(0.5);
     const [currentTrack, setCurrentTrack] = useState<SongType>(songData[0])
     const [time, setTime] = useState({
@@ -60,7 +61,7 @@ const PlayerContextProvider:React.FC<PlayerProviderProps> = ({children}) => {
         audioRef.current!.currentTime = ((e.nativeEvent.offsetX / seekRef.current!.offsetWidth) * audioRef.current!.duration)
     }
 
-    //Loop current Track
+    const toggleLoop = () => setIsLooping(!isLooping);
 
     useEffect(() => {
         setTimeout(() => {
@@ -82,12 +83,14 @@ const PlayerContextProvider:React.FC<PlayerProviderProps> = ({children}) => {
     useEffect(() => {
         if(audioRef.current){
             audioRef.current.volume = volume
+            audioRef.current.loop = isLooping
         }
-    },[audioRef, volume])
+    },[audioRef, volume, isLooping])
 
     const contextValue:PlayerContextType = {
         audioRef, barRef, seekRef,
         isPlaying, setIsPlaying,
+        isLooping, toggleLoop,
         volume, setVolume,
         currentTrack, setCurrentTrack,
         time, setTime,
