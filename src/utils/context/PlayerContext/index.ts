@@ -22,6 +22,7 @@ export type SongType = {
 
 export type PlayerContextType = {
     isPlaying: boolean;
+    isLooping: boolean;
     volume: number;
     currentTrack: SongType;
     audioRef: RefObject<HTMLAudioElement|null>;
@@ -38,6 +39,7 @@ export type PlayerContextType = {
     playPrevious: () => void;
     playNext: () => void;
     seekSong: (e: React.MouseEvent<HTMLDivElement>) => void;
+    toggleLoop: () => void;
 }
 
 export const PlayerContext = createContext<PlayerContextType|undefined>(undefined)
