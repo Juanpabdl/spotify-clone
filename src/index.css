@@ -111,6 +111,12 @@
   cursor-pointer
 }
 
+@utility normal-button{
+  @apply bg-background stroke-foreground rounded-2xl cursor-pointer 
+  transition-all duration-200 hover:bg-foreground/20
+  active:bg-foreground active:stroke-background 
+}
+
 @utility spoty-button{
   @apply px-4 py-2 rounded-full text-foreground bg-primary cursor-pointer hover:bg-primary/50
 }
