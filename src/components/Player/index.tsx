@@ -37,7 +37,7 @@ const Player = () => {
         return volumeElement;
     }
     return(
-        <div className="h-[10%] w-full px-4 bg-background flex justify-between items-center text-foreground">
+        <div className="h-[10%] w-full px-4 pb-2 bg-background flex justify-between items-center text-foreground">
             <div className="hidden lg:flex items-center gap-4">
                 <img className="w-12" src={currentTrack.img} alt="song_image"/>
                 <div>
@@ -45,7 +45,7 @@ const Player = () => {
                     <p>{currentTrack.desc.slice(0,12)}</p>
                 </div>  
             </div>
-            <div className="flex flex-col items-center gap-0.5 m-auto">
+            <div className="flex flex-col items-center m-auto">
                 <div className="flex gap-3">
                     <button className="group block-button">{/* Functionality pending */}
                         <Shuffle className="w-5"/>
@@ -71,7 +71,6 @@ const Player = () => {
                         ):(
                             <Repeat className="w-5 group-active:stroke-background"/>
                         )}
-                        
                     </button>
                 </div>
                 <div className="flex items-center gap-5">
